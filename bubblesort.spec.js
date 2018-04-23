@@ -1,9 +1,6 @@
 describe('Bubble Sort', function(){
   let arr = [];
-  beforeAll(function(){
-    spyOn(window,"bubbleSort").and.callThrough();
-    spyOn(window,"swap").and.callThrough();
-  });
+
 
   it('handles an empty array', function(){
       expect(bubbleSort([])).toEqual([]);
@@ -14,8 +11,9 @@ describe('Bubble Sort', function(){
   });
 
   it('calls swap 5 times', function(){
+      spyOn(window,"swap").and.callThrough();
       bubbleSort([9,1,2,3,4,5]);
-      expect(swap.calls.count().toEqual(5));
+      expect(swap.calls.count()).toEqual(5);
   });
 });
 
